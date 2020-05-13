@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('globalconst.APP_NAME') }}</title>
+    <link rel="stylesheet" href="{{ URL::asset('css/define/login.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ URL::asset('plugins/font-awesome/all.min.css') }}" type="text/css" />
+    <script type="text/javascript" src="{{ URL::asset('plugins/font-awesome/all.min.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/vendors/jquery/jquery-3.3.1.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/define/login.js')}}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/define/validation.js')}}"></script>
+
+    <style>
+        .title{
+            font-size: 3.5em;
+            font-weight: 900;
+            letter-spacing: 4px;
+            font-family: 楷体;
+            color: #ffffff;
+        }
+        .text-center{
+            text-align: center;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body onload="createCode()">
+<div class="body-shadow"></div>
+
+<div>
+    <div class="row" style="margin-left: 0;margin-right:0;margin-bottom: 40px;text-align: center;margin-top: 20px;">
+        <img width="86px" height="120px" src="{{ URL::asset('imgs/logored.png') }}" alt="logo" height="60"/>
+        <div class="col-md-12 text-center" style="margin-top: 30px;">
+            <span class="title" style="color:black;"> {{ config('globalconst.APP_NAME') }}</span>
+        </div>
+    </div>
+    <div class="login-container">
+        <div class="container-body">
+            <div class="login-panel">
+                <div class="panel-title">
+                    <span>用户登录</span>
+                </div>
+
+                <div class="panel-body">
+                    <div class="panel-row">
+                        <input type="hidden" id="login-url" value="{{ route('loginProcess') }}" />
+                        <input type="text" name="username" id="username" placeholder="用户名" />
+                        <span>
+                        <i class="fas fa-user myicon"></i>
+                    </span>
+                    </div>
+                    <div class="panel-row">
+                        <input type="password" name="userpwd" id="userpwd" placeholder="密码" autocomplete="false" />
+                        <span>
+                         <i class="fas fa-lock myicon"></i>
+                    </span>
+                    </div>
+
+                    <div class="panel-row">
+                        <input type="text" placeholder="验证码" id="inputCode" style="width: 50%"/>
+                        <span>
+                                 <i class="fas fa-key myicon"></i>
+                        </span>
+                        <div id="validations">
+                            <canvas id="canvas" width="88" height="24" ></canvas>
+                            <a href="javascript:void(0)" style="margin-left: 10px" onclick="createCode()">看不清</a>
+                        </div>
+                    </div>
+
+                    <div class="panel-row" style="margin-top: 20px">
+                        <button type="button" class="login-btn">登&nbsp;&nbsp;录</button>
+                    </div>
+                </div>
+                <div class="err-message">
+                    <i class="fas fa-minus-circle erricon"></i>
+                    <span class="err-content">用户名或密码错误，请稍后</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer>
+
+
+    <span>{{ config('globalconst.APP_FOOTER') }}</span>
+</footer>
+</body>
+</html>

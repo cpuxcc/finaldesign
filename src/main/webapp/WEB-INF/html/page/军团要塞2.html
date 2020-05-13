@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>虚拟物品交易平台</title>
+    <style type="text/css">
+
+        #ranking div ul li{
+            /*font: "微软雅黑";*/
+            font-size:15px ;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        #myswiper img{
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-container{
+
+            width: auto;
+            height: 300px;
+
+        }
+        #colerlist div.thumbnail {
+            box-shadow: 2px 2px 2px #888888;
+        }
+        /*图片选中效果*/
+        #colerlist div.thumbnail img {
+            transition: all 0.6s;
+        }
+
+        #colerlist div.thumbnail img:hover {
+            box-shadow: 3px 3px 3px #888888;
+            transform: scale(1.2);
+        }
+        /*ul li{
+
+            display: inline;
+            list-style-type: none;
+            padding: 5px 5px;
+        }*/
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../plugins/swiper/css/swiper.min.css">
+    <!--导航栏css-->
+    <link rel="stylesheet" type="text/css" href="../../css/home/navigation.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../../css/home/common.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/home/index.css">
+    <link rel="stylesheet" type="text/css" href="../../css/home/head-foot.css">
+    <link rel="stylesheet" type="text/css" href="../../css/home/common.css">
+
+
+</head>
+
+<body>
+
+<!--导航栏-->
+<div id="header" class="clearfix" style="position: fixed; z-index: 999;">
+    <div id="site-nav" style="position: relative">
+        <h1 class="logo">
+            <a href="../index.html"><span><img src="../../../image/logo2_2.png"/></span></a>
+        </h1>
+        <div class="pull-right">
+            <em style="display: inline-block;width: 1px;height: 12px;background-color: #999;margin: 0 5px;position: relative;top: 2px;"></em>
+        </div>
+        <div id="login_cpanl" class="user-info">
+            <div class="user-top">
+                <a id="ajax-login-dailog" class="ajax-login" data-target="#remote-dailog-modal">
+                    <button  data-toggle="modal" data-target="#myModal" style="background: transparent ; border: none">登录 / 注册</button>
+                </a>
+                <a>我要充值</a>
+                <a>我要出售</a>
+                <a>库存估价</a>
+            </div>
+            <!--<script>
+                if (Config.Mobile){
+                    $('.user-top').append("<a href='/api/default/select.json' id='select-mobile'>手机端</a>")
+                }
+            </script>-->
+        </div>
+    </div>
+    <div id="page-nav">
+        <ul class="nav-links">
+            <li class="current">
+                <a href="">首页</a>
+            </li>
+            <li class=" ">
+                <a href="">Dota2</a>
+            </li>
+            <li class=" ">
+                <a href="">CS:GO</a>
+            </li>
+            <li class=" ">
+                <a href="">H1Z1</a>
+            </li>
+            <li class="main-drop-nav dropdown " >
+                <a href="">军团要塞2
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="">
+                        <a href="">Rust</a>
+                    </li>
+                    <li class="">
+                        <a href="">Steam</a>
+                    </li>
+                    <li class="">
+                        <a href="">收获日2</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" ">
+                <a href="">CDK&游戏</a>
+            </li>
+            <li class=" ">
+                <a href="">资讯</a>
+            </li>
+            <li class="required-login">
+                <a href="">我的背包</a>
+            </li>
+            <li class="required-login ">
+                <a href="">个人中心</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+<!-- 模态框（Modal） -->
+<div ></div>
+<div class="modal fade" id="myModal" style="background: black" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">登录/注册</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <span>用户名</span>
+                    <input id="username" class="form-control" type="text" />
+
+                </div>
+                <br />
+                <div>
+                    <span>密码</span>
+                    <input id="password" class="form-control" type="password"/>
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">请记住我
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">登录</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!--导航end-->
+<script src="../../../plugins/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../plugins/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../plugins/swiper/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../plugins/jquery/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
+<!--登录js-->
+<script src="../../../js/navlogin.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+<script type="text/javascript">
+    var swiper = new Swiper ('.swiper-container', {
+        direction:'horizontal', // 水平轮播
+        loop: true, // 循环模式选项
+        speed : 2000,
+
+        observer:true,
+        observeParents:true,
+
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+        /*effect : 'coverflow',
+        slidesPerView: 3,
+        centeredSlides: true,
+        coverflow: {
+            rotate: 30,
+            stretch: 10,
+            depth: 60,
+            modifier: 2,
+            slideShadows : true
+        }*/
+    })
+</script>
+</body>
+</html>

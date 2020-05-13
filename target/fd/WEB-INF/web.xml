@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+    <display-name>Archetype Created Web Application</display-name>
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>
+    </welcome-file-list>
+    <!-- servlet 定义 -->
+    <servlet>
+        <servlet-name>ErrorHandler</servlet-name>
+        <servlet-class>fd.controller.ErrorHandler</servlet-class>
+    </servlet>
+    <!-- servlet 映射 -->
+    <servlet-mapping>
+        <servlet-name>ErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <!-- 类名 -->
+        <servlet-name>LoginCookie</servlet-name>
+        <!-- 所在的包 -->
+        <servlet-class>fd.controller.LoginCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginCookie</servlet-name>
+        <!-- 访问的网址 -->
+        <url-pattern>/LoginCookie</url-pattern>
+    </servlet-mapping>
+    <!-- error-code 相关的错误页面 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+      <!--<servlet>
+          <servlet-name>httpServlet</servlet-name>
+          <servlet-class>com.rl.servlet.HttpServletDemo</servlet-class>
+      </servlet>
+      <servlet-mapping>
+          <servlet-name>httpServlet</servlet-name>
+          <url-pattern>/httpRequest</url-pattern>
+      </servlet-mapping>-->
+    <!-- exception-type 相关的错误页面 -->
+    <error-page>
+        <exception-type>
+            javax.servlet.ServletException
+        </exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.io.IOException</exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+    <servlet>
+        <servlet-name>JAX-RS Servlet</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.detectivehlh.test</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JAX-RS Servlet</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+</web-app>

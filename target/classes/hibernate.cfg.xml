@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <!--数据源工厂-->
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <!--url 主协议:次协议:客户端类型:@主机ip:端口号:版本-->
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        <property name="connection.username">gamec</property>
+        <property name="connection.password">gamec</property>
+
+        <!--&lt;!&ndash; JDBC connection pool (use the built-in) &ndash;&gt;-->
+        <!--<property name="connection.pool_size">1</property>-->
+
+        <!-- SQL dialect  sql方言-->
+        <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+        <!--&lt;!&ndash; Enable Hibernate's automatic session context management &ndash;&gt;-->
+        <!--<property name="current_session_context_class">thread</property>-->
+
+        <!--&lt;!&ndash; Disable the second-level cache  &ndash;&gt;-->
+        <!--<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>-->
+
+        <!-- 是否显示sql,生成环境需要false -->
+        <property name="show_sql">true</property>
+        <!--设置打印格式-->
+        <property name="format_sql">true</property>
+
+        <!--
+        create 先drop
+        update
+        -->
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="fd.entity.User"></mapping>
+       <!-- <mapping class="wxzw.gamec.entity.User"></mapping>
+        <mapping class="wxzw.gamec.entity.UserDetail"></mapping>
+        <mapping class="wxzw.gamec.entity.GameDetail"></mapping>
+        <mapping class="wxzw.gamec.entity.GameAbstract"></mapping>-->
+
+    </session-factory>
+
+</hibernate-configuration>
